@@ -1,0 +1,15 @@
+# 忽略所有编译生成的文件
+*.o
+
+# 忽略所有dbgmodule文件
+*.dbgmodule_old_*
+*.dbgmodule
+
+# 忽略所有配置文件
+*.json
+
+#但不忽略lushan.json
+!*.lushan.json 
+
+# 忽略所有fs文件
+*.fs
