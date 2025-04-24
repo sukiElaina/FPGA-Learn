@@ -1,5 +1,7 @@
 `default_nettype none
-
+`ifndef KEY
+ `define KEY key
+`endif
 module uart
 #(
     parameter DELAY_FRAMES = 234 // 27,000,000 (27Mhz) / 115200 Baud rate
@@ -8,6 +10,7 @@ module uart
     input clk,
     input uart_rx,
     output uart_tx,
+    output clkout,
     output reg [5:0] led,
     input btn1
 );
@@ -25,6 +28,11 @@ localparam RX_STATE_START_BIT = 1;
 localparam RX_STATE_READ_WAIT = 2;
 localparam RX_STATE_READ = 3;
 localparam RX_STATE_STOP_BIT = 5;
+
+Gowin_rPLL your_instance_name(
+    .clkout(clkout), //output clkout
+    .clkin(clk) //input clkin
+);
 
 always @(posedge clk) begin
     case (rxState)
