@@ -13,3 +13,9 @@
 
 # 忽略所有fs文件
 *.fs
+
+# 忽略Gowin的EDA产生的文件夹
+fpga_project/
+
+# 忽略Gowin的EDA产生的临时文件
+gowin_rpll/
